@@ -5,7 +5,8 @@ Demonstration of graphql-yoga server to forward requests to prisma server direct
 ## Prerequisite
 
 You must have Prisma server installed in your environment (on local or on cloud service)
-
+For example, you might deploy simple Prisma service by utilizing this repo.
+https://github.com/onelittlenightmusic/simple_user_sample_for_PRISMA
 
 ## TL;DR
 
