@@ -1,0 +1,19 @@
+projects:
+  # (1) project prisma (Prismaサーバからスキーマをダウンロードする準備処理)
+  prisma:
+    # ダウンロードしたスキーマファイル名
+    schemaPath: src/generated/prisma.graphql
+    extensions:
+      prisma: prisma/prisma.yml
+  # (2) project app: ((1)で作成したprisma.graphqlとschema.graphqlをマージ)
+  app:
+    # アプリ用のスキーマファイル名
+    schemaPath: src/schema.graphql
+    extensions:
+      endpoints:
+        default: http://localhost:4010
+      # マージ後のアプリ用のスキーマファイル
+      prepare-bundle: src/generated/app.graphql
+      prepare-binding:
+        generator: prisma-ts
+        output: src/generated/app.ts  
