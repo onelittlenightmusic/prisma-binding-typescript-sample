@@ -16,7 +16,7 @@ vi .env # input your prisma server address
 graphql get-schema # to install prisma.graphql from prisma server
 graphql prepare # to install app.graphql
 yarn install
-yarn start
+yarn start (or yarn start-apollo)
 ```
 
 ... and access `http://localhost:4010` with your browser.
