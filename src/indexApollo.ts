@@ -7,6 +7,7 @@ config()
 const typeDefs = <any> importSchema('src/generated/app.graphql')
 
 const __PRISMA_ENDPOINT__ = process.env.PRISMA_ENDPOINT
+const __API_PORT__ = process.env.API_PORT
 
 const resolvers = <any> {
     Query: {
@@ -32,4 +33,4 @@ const server = new ApolloServer({
     playground: true,
     debug: true,
  })
-server.listen({ port: 4010,})
+server.listen({ port: __API_PORT__,})

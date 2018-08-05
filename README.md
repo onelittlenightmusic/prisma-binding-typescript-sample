@@ -6,14 +6,13 @@ Demonstration of graphql-yoga server or Apollo Server 2.0 to forward requests to
  
 ```
 cp .env_sample .env
-vi .env # input your prisma server address
+# input your prisma server address
+vi .env 
 
 # if you want, go to "prepare your prisma server"
 
-graphql get-schema # to install prisma.graphql from prisma server
-graphql prepare # to install app.graphql
-yarn install
-yarn start (or yarn start-apollo)
+# Start server (if you want, you can start server manually)
+sh server.sh
 ```
 
 ... and access `http://localhost:4010` with your browser.
@@ -22,8 +21,21 @@ yarn start (or yarn start-apollo)
 
 ```
 cd prisma
+# change docker-compose environment variables
+vi .env
 docker-compose up -d
 # if you want, change graphql schema by editing datamodel.graphql
 prisma deploy -e ../.env
 cd ..
+```
+
+- (Alternative) Start graphql-yoga or Apollo Server 2.0 server manually
+
+```
+# to install prisma.graphql from prisma server
+graphql get-schema -p prisma --dotenv .env
+# to install app.graphql
+graphql prepare --dotenv .env
+yarn install
+yarn start (or yarn start-apollo)
 ```

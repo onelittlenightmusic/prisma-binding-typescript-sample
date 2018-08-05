@@ -3,6 +3,7 @@ import { Prisma, forwardTo } from 'prisma-binding'
 import { config } from 'dotenv'
 config()
 const __PRISMA_ENDPOINT__ = process.env.PRISMA_ENDPOINT
+const __API_PORT__ = process.env.API_PORT
 
 const resolvers = <any> {
     Query: {
@@ -25,4 +26,4 @@ const server = new GraphQLServer({
       }),
     }),
  })
-server.start({ port: 4010,}, ({port}) => console.log(`GraphQL server is running on http://localhost:${port}`))
+server.start({ port: __API_PORT__,}, ({port}) => console.log(`GraphQL server is running on http://localhost:${port}`))
