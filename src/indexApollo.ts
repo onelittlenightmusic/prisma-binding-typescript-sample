@@ -11,11 +11,11 @@ const __API_PORT__ = process.env.API_PORT
 
 const resolvers = <any> {
     Query: {
-      user: forwardTo('prisma'),
-      users: forwardTo('prisma')
+      location: forwardTo('prisma'),
+      locations: forwardTo('prisma')
     },
     Mutation: {
-      createUser: forwardTo('prisma'),
+      createLocation: forwardTo('prisma'),
     }      
 }
 
